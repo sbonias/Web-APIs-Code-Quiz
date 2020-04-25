@@ -19,7 +19,8 @@
     <!--Will need to display in top right corner of page and at all times-->
     <div id="countdown">Countdown</div>
     <hr>
-    <div id="score">Score</div>
+    <!--Will need to display in top right corner of page and at all times-->
+    <div id="current-score">Current Score</div>
     <hr>
 </header>
 
@@ -31,43 +32,43 @@
             that incorrect answers will penalize your score/time by ten seconds!</div>
         <button id="start-quiz">Start Quiz</button>
         <hr>
-        <!--These elements will display/populate when user starts quiz as well as upon answer submissions-->
-        <div id="questions">
-            <div class="primary-question">Question will populate here</div>
-            <button id="option-one">Option 1 will populate here</button>
-            <button id="option-two">Option 2 will populate here</button>
-            <button id="option-three">Option 3 will populate here</button>
-            <button id="option-four">Option 4 will populate here</button>
-            <hr>
-            <p class="result">Notify user if they chose wisely</p>
+    </div>
+    <!--These elements will display/populate when user starts quiz as well as upon answer submissions-->
+    <div id="questions">
+        <div class="primary-question">Question will populate here</div>
+        <button id="option-one">Option 1 will populate here</button>
+        <button id="option-two">Option 2 will populate here</button>
+        <button id="option-three">Option 3 will populate here</button>
+        <button id="option-four">Option 4 will populate here</button>
+        <hr>
+        <p class="result">Notify user if they chose wisely</p>
+    </div>
+    <!--These elements will display/populate when quiz timer runs out OR user completes quiz-->
+    <hr>
+    <div id="credits">
+        <div class="main-text2">You have completed the quiz!</div>
+        <div class id="sub-text2">Your final score is #.</div>
+        <form>
+            <p>Enter your initials here: </p>
+            <input placeholder="initials" id="initials" />
+            <button id="submit">Submit</button>
+            <div>
+            </div>
+        </form>
+    </div>
 
-            <!--These elements will display/populate when quiz timer runs out OR user completes quiz-->
-            <hr>
-        </div>
-        <div id="credits">
-            <div class="main-text2">You have completed the quiz!</div>
-            <div class id="sub-text2">Your final score is #.</div>
-            <form>
-                <p>Enter your initials here: </p>
-                <input placeholder="initials" id="initials" />
-                <button id="submit">Submit</button>
-                <div>
-                </div>
-            </form>
-        </div>
-
-        <!-- Copy and pasted bootstraps JS cdn to apply its templates to my code -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
-        <!--Linking the JS file to the this HTML file-->
-        <script src="./script.js"></script>
+    <!-- Copy and pasted bootstraps JS cdn to apply its templates to my code -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!--Linking the JS file to the this HTML file-->
+    <script src="./script.js"></script>
 </body>
 
 </html>
