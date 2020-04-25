@@ -2,26 +2,29 @@
 //Related to the following function: setTime
 var timeElement = document.querySelector("#countdown");
 var startQuizBtn = document.querySelector("#start-quiz")
+var initialQuestion = document.querySelector(".primary-question");
+var scoreElement = document.querySelector("#score");
 var secondsLeft = 60;
+var score = 0;
 //Related to the following function: questionDisplay
 var questionsDiv = document.querySelector("#questions");
-var optionOne = document.querySelector("#option-one");
-var optionTwo = document.querySelector("#option-two");
-var optionThree = document.querySelector("#option-three");
-var optionFour = document.querySelector("#option-four");
+var optionOneBtn = document.querySelector("#option-one");
+var optionTwoBtn = document.querySelector("#option-two");
+var optionThreeBtn = document.querySelector("#option-three");
+var optionFourBtn = document.querySelector("#option-four");
 var answerResult = document.querySelector("#result");
 var questionOne = {
     question: "A loop that never ends is referred to as which type of loop?",
     options: ["While Loop", "Infinite Loop", "Recursive Loop", "For Loop"],
-    answer: "Infinite Loop",
+    answer: "Infinite Loop", //I should actually make this into an array spot like [1]
 };
-
+//Related to the following function: 
 
 
 //Create a Countdown Function (what happens when countdown kicks off?):
 //Countdown should initiate when "start-quiz" button is clicked
 //Countdown should start at 60 seconds
-//Countdown should deduct 10 seconds from timer each time incorrect option is selected
+//Countdown should deduct 10 seconds from timer each time incorrect option is selected (a separate function is required)
 //Countdown should end at 0
 //When Countdown arrives at 0, "results" content should be displayed
 
@@ -41,23 +44,43 @@ startQuizBtn.addEventListener("click", function () {
     }
     setTime();
 
-
-
     //Create a Display Question(s) Function
+    //I could not get the contents of the array to populate the button text with .textcontent or .value, it had to be .innerhtml (this took me hours to figure out)
+
 
     function questionDisplay() {
-        questionsDiv.textContent = questionOne.question;
-        optionOne.textContent = questionOne.options[0];
+        initialQuestion.textContent = questionOne.question;
+        optionOneBtn.innerHTML = questionOne.options[0];
+        optionTwoBtn.innerHTML = questionOne.options[1];
+        optionThreeBtn.innerHTML = questionOne.options[2];
+        optionFourBtn.innerHTML = questionOne.options[3];
+
+        console.log(optionOneBtn, optionTwoBtn, optionThreeBtn, optionFourBtn);
+        console.log(answerOne, answerTwo, answerThree, answerFour);
     }
+
+    optionOneBtn.addEventListener("click", function () {
+        secondsLeft = secondsLeft - 5;
+        score++;
+
+    });
+
 
     questionDisplay();
 });
-//Create a Correct Answers Function (what happens when user selects an incorrect answer):
+
+
+//display hidden or display none is what hides
+//when you click a button you want to impact the display properties
+//when you want it to reappear you have to change it back
+
+//Create a Correct Answers Function (what happens when user selects the correct answer?):
 //displays next question
 //displays whether or not the prior questions answer was "Correct" or "Incorrect" underneath the current question
 //Adds points to the score
+//optionOneBtn.addEventListener("click")
 
-//Create an Incorrect Answers Function (what happens when the user selects a correct answer):
+//Create an Incorrect Answers Function (what happens when the user selects an incorrect answer):
 //displays next question
 //displays whether or not the prior questions answer was "Correct" or "Incorrect" underneath the current question
 //deducts 10 seconds from the timer
@@ -66,6 +89,9 @@ startQuizBtn.addEventListener("click", function () {
 //Create a Deduct Time Function (for Incorrect answers)
 
 //Create a Score Keeper Function (needs to be saved to local storage)
+
+scoreElement.textContent = score;
+
 
 //Create a Score Deduction Function
 
