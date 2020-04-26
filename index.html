@@ -12,51 +12,61 @@
     <link rel="stylesheet" href="./style.css" />
 </head>
 
+<!--Will need to display at top of screen-->
 <header>
-    <!--Will need to display in top left corner of page and at all times-->
-    <div id="high-scores">High Scores</div>
-    <hr>
-    <!--Will need to display in top right corner of page and at all times-->
-    <div id="countdown">Countdown</div>
-    <hr>
-    <!--Will need to display in top right corner of page and at all times-->
-    <div id="current-score">Current Score</div>
-    <hr>
+    <!--Will need to display in top left corner of page-->
+    <!--    Bootstrap margin-left-3 applied to class-->
+    <a href="highscores.html" class="ml-3">View High Scores</a>
+    <!--Will need to display in top right corner of page-->
+    <!--    Bootstrap float-right as well as margin-right-3 applied to class-->
+    <div id="countdown" class="float-right mr-3">Time: 0</div>
 </header>
 
 <body>
     <!--These elements will display on start and when user selects "Go Back"-->
-    <div id="intro">
-        <h1 class="main-text">Coding Quiz!!!</h1>
-        <div class="sub-text">Try to answer the following code-related questions within the time limit. Keep in mind
-            that incorrect answers will penalize your score/time by ten seconds!</div>
-        <button id="start-quiz">Start Quiz</button>
-        <hr>
-    </div>
-    <!--These elements will display/populate when user starts quiz as well as upon answer submissions-->
-    <div id="questions">
-        <div class="primary-question">Question will populate here</div>
-        <button id="option-one">Option 1 will populate here</button>
-        <button id="option-two">Option 2 will populate here</button>
-        <button id="option-three">Option 3 will populate here</button>
-        <button id="option-four">Option 4 will populate here</button>
-        <hr>
-        <p class="result">Notify user if they chose wisely</p>
-    </div>
-    <!--These elements will display/populate when quiz timer runs out OR user completes quiz-->
-    <hr>
-    <div id="credits">
-        <div class="main-text2">You have completed the quiz!</div>
-        <div class id="sub-text2">Your final score is #.</div>
-        <form>
-            <p>Enter your initials here: </p>
-            <input placeholder="initials" id="initials" />
-            <button id="submit">Submit</button>
-            <div>
+    <div id="intro" class="container mt-5">
+        <div class="row justify-content-center mt-5 pt-3 pb-3">
+            <div class="col-10 col-lg-8">
+                <h1>Coding Quiz!!!</h1>
+                <p>Try to answer the following code-related questions within the time limit. Keep in mind
+                    that incorrect answers will penalize your score/time by ten seconds!</p>
+                <button id="start-quiz" class="btn btn-info btn-lg">Start Quiz</button>
             </div>
-        </form>
+        </div>
+        <!--These elements will display during quiz-->
+        <!--    d-none ensures they do not display on start-->
+        <div class="container mt-5 d-none" id="quiz">
+            <div class="row justify-content-center mt-5 pt-3 pb-3">
+                <div class="col-10 col-lg-8" id="Q&A">
+                    <h3 id="questions" class="mb-4"></h3>
+                    <ul id="answers" class="list-unstyled">
+                        <li class="answerChoice">A. </li>
+                        <li class="answerChoice">B. </li>
+                        <li class="answerChoice">C. </li>
+                        <li class="answerChoice">D. </li>
+                    </ul>
+                    <p class="result">Correct or Incorrect!</p>
+                </div>
+            </div>
+        </div>
+        <!--These elements will display when quiz timer runs out OR user completes quiz-->
+        <!--    d-none ensures they do not display on start-->
+        <div class="container mt-5 d-none" id="results">
+            <div class="row justify-content-center mt-5 pt-3 pb-3">
+                <div class="col-10 col-lg-8">
+                    <h3>You have completed the quiz!</h3>
+                    <h4 id="final-score">Report final score</h4>
+                    <form>
+                        <p>Enter your initials here: </p>
+                        <input placeholder="initials" id="initials" />
+                        <button id="submit" class="btn btn-info btn-lg">Submit</button>
+                        <div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
     <!-- Copy and pasted bootstraps JS cdn to apply its templates to my code -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

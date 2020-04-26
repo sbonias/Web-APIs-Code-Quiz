@@ -55,9 +55,9 @@ startQuizBtn.addEventListener("click", function () {
 //  I could not get the contents of the array to populate the button text with .textcontent or .value, it had to be .innerhtml (this took me hours to figure out)
 function questionDisplay() {
     //have the #intro <div> disappear 
-    introDiv.style.display = "none";
+    //introDiv.style.display = "none";
     //have the #questions <div> appear
-    questionDiv.style.display = "inline";
+    //questionDiv.style.display = "inline";
 
     //Display the contents of the q1 object into its corresponding elements
     initialQuestion.textContent = questionOne.question;
