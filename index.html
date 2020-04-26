@@ -33,39 +33,40 @@
                 <button id="start-quiz" class="btn btn-info btn-lg">Start Quiz</button>
             </div>
         </div>
-        <!--These elements will display during quiz-->
-        <!--    d-none ensures they do not display on start-->
-        <div class="container mt-5 d-none" id="quiz">
-            <div class="row justify-content-center mt-5 pt-3 pb-3">
-                <div class="col-10 col-lg-8" id="Q&A">
-                    <h3 id="questions" class="mb-4"></h3>
-                    <ul id="answers" class="list-unstyled">
-                        <li class="answerChoice">A. </li>
-                        <li class="answerChoice">B. </li>
-                        <li class="answerChoice">C. </li>
-                        <li class="answerChoice">D. </li>
-                    </ul>
-                    <p class="result">Correct or Incorrect!</p>
-                </div>
+    </div>
+    <!--These elements will display during quiz-->
+    <!--    d-none ensures they do not display on start-->
+    <div id="quiz" class="container mt-5 d-none">
+        <div class="row justify-content-center mt-5 pt-3 pb-3">
+            <div class="col-10 col-lg-8" id="Q&A">
+                <h3 id="questions" class="mb-4">Hi there</h3>
+                <ul id="answers" class="list-unstyled">
+                    <li class="answerChoice">A. </li>
+                    <li class="answerChoice">B. </li>
+                    <li class="answerChoice">C. </li>
+                    <li class="answerChoice">D. </li>
+                </ul>
+                <p class="result">Correct or Incorrect!</p>
             </div>
         </div>
-        <!--These elements will display when quiz timer runs out OR user completes quiz-->
-        <!--    d-none ensures they do not display on start-->
-        <div class="container mt-5 d-none" id="results">
-            <div class="row justify-content-center mt-5 pt-3 pb-3">
-                <div class="col-10 col-lg-8">
-                    <h3>You have completed the quiz!</h3>
-                    <h4 id="final-score">Report final score</h4>
-                    <form>
-                        <p>Enter your initials here: </p>
-                        <input placeholder="initials" id="initials" />
-                        <button id="submit" class="btn btn-info btn-lg">Submit</button>
-                        <div>
-                        </div>
-                    </form>
-                </div>
+    </div>
+    <!--These elements will display when quiz timer runs out OR user completes quiz-->
+    <!--    d-none ensures they do not display on start-->
+    <div class="container mt-5 d-none" id="results">
+        <div class="row justify-content-center mt-5 pt-3 pb-3">
+            <div class="col-10 col-lg-8">
+                <h3>You have completed the quiz!</h3>
+                <h4 id="final-score">Report final score</h4>
+                <form>
+                    <p>Enter your initials here: </p>
+                    <input placeholder="initials" id="initials" />
+                    <button id="submit" class="btn btn-info btn-lg">Submit</button>
+                    <div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
     <!-- Copy and pasted bootstraps JS cdn to apply its templates to my code -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

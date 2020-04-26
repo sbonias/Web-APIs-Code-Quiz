@@ -1,7 +1,6 @@
 //Declare Variables
 //Related to the following function: setTime
 var introDiv = document.querySelector("#intro");
-var questionDiv = document.querySelector("#questions");
 var timeElement = document.querySelector("#countdown");
 var startQuizBtn = document.querySelector("#start-quiz")
 var currentScore = document.querySelector("#current-score");
@@ -9,70 +8,83 @@ var initialQuestion = document.querySelector(".primary-question");
 var secondsLeft = 60;
 var score = 0;
 //Related to the following function: questionDisplay
-var questionsDiv = document.querySelector("#questions");
-var optionOneBtn = document.querySelector("#option-one");
-var optionTwoBtn = document.querySelector("#option-two");
-var optionThreeBtn = document.querySelector("#option-three");
-var optionFourBtn = document.querySelector("#option-four");
-var answerResult = document.querySelector("#result");
+var mainQuestion = document.querySelector("#questions");
+var answerOptions = document.querySelector("#answers");
+var questionNumber = -1;
+var answer;
 //Declare Variable-object that contains questions, choices and right answer
-var questionOne = {
-    question: "A loop that never ends is referred to as which type of loop?",
-    options: ["While Loop", "Infinite Loop", "Recursive Loop", "For Loop"],
-    answer: "2",
-};
+var questions = [
+    {
+        question: "A loop that never ends is referred to as which type of loop?",
+        options: ["While Loop", "Infinite Loop", "Recursive Loop", "For Loop"],
+        answer: "Infinite Loop",
+    },
+    {
+        question: "Commonly used data type DO NOT include:",
+        options: ["Strings", "Booleans", "Alerts", "Numbers"],
+        answer: "Alerts",
+    },
+    {
+        question: "Inside which HTML element do we place JavaScript code?",
+        options: ["scripting", "javascript", "js", "script"],
+        answer: "script",
+    },
+    {
+        question: "Where is the correct place to insert a JavaScript?",
+        options: ["The head", "The body", "Both the head and the body sections are correct"],
+        answer: "The body",
+    },
+    {
+        question: "What's the syntax for creating a function in JS?",
+        options: ["function:myFunction()", "function myFunction()", "function = myFunction()"],
+        answer: "function myFunction()",
+    },
+];
 
-//Related to the following function: 
+//Primary event listener
+startQuizBtn.addEventListener("click", startTimer);
 
+//Function
+function startTimer() {
+    //have the #intro <div> disappear 
+    document.getElementById("intro").classList.add("d-none");
+    //have the #questions <div> appear
+    document.getElementById("quiz").classList.remove("d-none");
 
-//Create a Countdown Function (what happens when countdown kicks off?):
-//      Countdown should initiate when "start-quiz" button is clicked
-//      Countdown should start at 60 seconds
-//      Countdown should deduct 10 seconds from timer each time incorrect option is selected (a separate function is required)
-//      Countdown should end at 0
-//      When Countdown hits 0, the game should end and the "results" screen should display
-
-startQuizBtn.addEventListener("click", function () {
-
-    function setTime() {
-        var timerInterval = setInterval(function () {
-            secondsLeft--;
-            console.log(secondsLeft);
-            timeElement.textContent = secondsLeft;
-            if (secondsLeft === 0) {
-                clearInterval(timerInterval);
-                //will need to indicate what needs to be done once the timer reaches 0 which is display results
-                //window.location.href = "TBD";
-            }
-        }, 1000);
-    }
     setTime();
     questionDisplay();
-    retainAnswers();
-});
+}
+
+//Function
+function setTime() {
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        console.log(secondsLeft);
+        timeElement.textContent = secondsLeft;
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            //will need to indicate what needs to be done once the timer reaches 0 which is display results
+            //window.location.href = "TBD";
+        }
+    }, 1000);
+}
 
 //Create a Display Question(s) Function
-//  I could not get the contents of the array to populate the button text with .textcontent or .value, it had to be .innerhtml (this took me hours to figure out)
 function questionDisplay() {
-    //have the #intro <div> disappear 
-    //introDiv.style.display = "none";
-    //have the #questions <div> appear
-    //questionDiv.style.display = "inline";
+    questionNumber++;
+    answer = questions[questionNumber].answer
 
-    //Display the contents of the q1 object into its corresponding elements
-    initialQuestion.textContent = questionOne.question;
-    optionOneBtn.innerHTML = questionOne.options[0];
-    optionTwoBtn.innerHTML = questionOne.options[1];
-    optionThreeBtn.innerHTML = questionOne.options[2];
-    optionFourBtn.innerHTML = questionOne.options[3];
+    mainQuestion.textContent = questions[questionNumber].question;
+    answerOptions.innerHTML = "";
 
-    //Assign an attribute to the buttons, in order
-    optionOneBtn.setAttribute("value", "1");
-    optionTwoBtn.setAttribute("value", "2");
-    optionThreeBtn.setAttribute("value", "3");
-    optionFourBtn.setAttribute("value", "4");
+    var options = questions[questionNumber].options;
 
-    console.log(optionOneBtn, optionTwoBtn, optionThreeBtn, optionFourBtn);
+    for (var i = 0; i < options.length; i++) {
+        var nextChoice = document.createElement("button");
+
+        nextChoice.textContent = options[i]
+        answerBtn = answerOptions.appendChild(nextChoice).setAttribute("class", "p-3 m-1 btn btn-light btn-block");
+    }
 }
 
 //Create a Correct Answers Function (what happens when user selects the correct answer?):
@@ -147,22 +159,4 @@ function timeDeduction() {
 
     //Create a High Score Entry Function
 
-    // var questions = {
-    //     question: "Commonly used data type DO NOT include:",
-    //     choices: ["Strings", "Booleans", "Alerts", "Numbers"],
-    //     answer: "Alerts",
-    // },
-    // var questions = {
-    //     question: "Inside which HTML element do we place JavaScript code?",
-    //     choices: ["scripting", "javascript", "js", "script"],
-    //     answer: "script",
-    // },
-    // var questions = {
-    //     question: "Where is the correct place to insert a JavaScript?",
-    //     choices: ["The head", "The body", "Both the head and the body sections are correct"],
-    //     answer: "The body",
-    // },
-    // var questions = {
-    //     question: "What's the syntax for creating a function in JS?",
-    //     choices: ["function:myFunction()", "function myFunction()", "function = myFunction()"],
-    //     answer: "function myFunction()",
+
